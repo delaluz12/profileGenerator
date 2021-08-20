@@ -1,0 +1,32 @@
+{
+  "name": "profilegenerator",
+  "version": "1.0.0",
+  "description": "renders team profiles to html document for easy viewing on web browsers",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/delaluz12/profileGenerator.git"
+  },
+  "keywords": [
+    "node.js",
+    "inquirer",
+    "jest",
+    "fullStackDevelopment"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/delaluz12/profileGenerator/issues"
+  },
+  "homepage": "https://github.com/delaluz12/profileGenerator#readme",
+  "dependencies": {
+    "inquirer": "^8.1.2",
+    "jest": "^27.0.6"
+  }
+}

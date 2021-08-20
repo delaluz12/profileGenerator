@@ -1,0 +1,12 @@
+.cardHeader {
+    font-size: 1.5rem;
+}
+.cardHeaderWrapper {
+    background-color:#317873 ;
+    border-radius: 0.25rem, 0.25rem, 0, 0.25rem;
+    padding: 1rem;
+}
+.row {
+    margin-top: 2rem;
+}
+
