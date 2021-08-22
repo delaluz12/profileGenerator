@@ -51,6 +51,27 @@ const questions = [
         name: 'engineerGithub',
         message: "What is the engineer's GitHub username?"
     },
+    {
+        type: 'input',
+        name: 'internName',
+        message: "What is the intern's name?",
+        when:(responseObj) => responseObj.teamMemberType === 'Intern'
+    },
+    {
+        type: 'input',
+        name: 'internId',
+        message: "What is the intern's ID?"
+    },
+    {
+        type: 'input',
+        name: 'internSchool',
+        message: "What school does the intern attend?"
+    },
 
 
-]
+];
+function init() {
+    console.log("Let's start building your team")
+    inquirer.prompt({questions});
+    
+}
