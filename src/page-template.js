@@ -1,7 +1,7 @@
 const Employee = require("../lib/employee");
 
 function generateHTML(teamArr) {
-    // console.log(teamArr);
+    
 
     const renderManagerCard = (manager) => {
         return `<div class="col">
@@ -68,16 +68,13 @@ function generateHTML(teamArr) {
     }
 
     const manager = teamArr[0];
-    // console.log(renderManagerCard(manager));
+    
 
     //filter through teamArr for employee type then map through them to run appropriate function to generate card for each type of employee
     const engineerHTML = teamArr.filter((employee)=> employee.getRole() === "Engineer").map((engineer)=> renderEngineerCard(engineer)).join('');
-    // console.log(engineerHTML);
-
+    
     const internHTML = teamArr.filter((employee)=> employee.getRole() === "Intern").map((intern)=> renderInternCard(intern)).join('');
-    // console.log(internHTML);
-
-
+   
     return `<!DOCTYPE html>
     <html lang="en">
 

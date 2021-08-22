@@ -9,7 +9,7 @@ const generateHTML = require('./src/page-template');
 
 //path where output will be printed
 const path = require('path');
-const pathDirectory = path.resolve(__dirname, 'dist'); //pathDirectory 
+const pathDirectory = path.resolve(__dirname, 'dist'); //absolute pathDirectory 
 const outputPath = path.join(pathDirectory, 'team.html',)
 
 //array to store team member objects from constructor
@@ -133,7 +133,7 @@ function init() {
     };
     //function that generates entire team to be rendered on HTML page
     function generateTeam() {
-        // console.log(generateHTML(teamArr));
+        
         //check to see if pathDirectory already exists if not then create it
         if (!pathDirectory) {
             fs.mkdirSync(pathDirectory);
