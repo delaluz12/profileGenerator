@@ -133,15 +133,15 @@ function init() {
     };
     //function that generates entire team to be rendered on HTML page
     function generateTeam() {
-        console.log(generateHTML(teamArr));
+        // console.log(generateHTML(teamArr));
         //check to see if pathDirectory already exists if not then create it
-        // if (!pathDirectory) {
-        //     fs.mkdirSync(pathDirectory);
-        // }
+        if (!pathDirectory) {
+            fs.mkdirSync(pathDirectory);
+        }
         //write data to html file and generate team.html file in dist folder
-        // fs.writeFile(outputPath, generateHTML(teamArr), (err)=> {
-        //     err ? console.log(err) : console.log("success your team.html has rendered");
-        // })
+        fs.writeFile(outputPath, generateHTML(teamArr), (err)=> {
+            err ? console.log(err) : console.log("success your team.html has rendered");
+        })
     };
 
     //call manager function

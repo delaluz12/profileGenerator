@@ -75,7 +75,7 @@ function generateHTML(teamArr) {
     // console.log(engineerHTML);
 
     const internHTML = teamArr.filter((employee)=> employee.getRole() === "Intern").map((intern)=> renderInternCard(intern)).join('');
-    console.log(internHTML);
+    // console.log(internHTML);
 
 
     return `<!DOCTYPE html>
