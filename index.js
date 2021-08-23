@@ -24,22 +24,41 @@ function init() {
             {
                 type: 'input',
                 name: 'managerName',
-                message: "What is the team manager's name?"
+                message: "What is the team manager's name?",
+                validate: (response)=> {
+                    //if response is not empty return true and move to next question -- else let them to enter at least 1 char
+                    return (response !== "")? true : 'Must enter at least 1 character' ;
+                }
             },
             {
                 type: 'input',
                 name: 'managerId',
-                message: "What is the team manager's ID?"
+                message: "What is the team manager's ID?",
+                validate: (response) => {
+                    const isNum = /^\d+$/.test(response);
+                    return (isNum) ? true : 'must enter postive whole numbers'
+                }
             },
             {
                 type: 'input',
                 name: 'managerEmail',
-                message: "What is the team manager's email?"
+                message: "What is the team manager's email?",
+                validate: (response) => {
+                    const re = `/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/`;
+                    const isValidEmail = re.test(response.managerEmail);
+                    console.log(isValidEmail);
+                    // return (isValidEmail) ? true : 'email entry not valid - please try again';
+                }
             },
             {
                 type: 'input',
                 name: 'managerOffice',
-                message: "What is the team manager's office number?"
+                message: "What is the team manager's office number?",
+                validate: (response) => {
+                    const isNum = /^\d+$/.test(response);
+                    return (isNum) ? true : 'must enter postive whole numbers'
+                }
+
             },
         ]).then(response => {
             const manager = new Manager(response.managerName, response.managerId, response.managerEmail, response.managerOffice);
@@ -50,7 +69,6 @@ function init() {
         })
     };
 
-    //function that will build out team members under manager entered
     function generateTeamMembers() {
         inquirer.prompt([
             {
