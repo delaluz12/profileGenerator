@@ -1,4 +1,5 @@
 const Engineer = require('../lib/engineer');
+
 //test1: can set github account via constructor
 describe('Engineer', () => {
     it('should return an object with "githubUsername" property', () => {
@@ -15,7 +16,7 @@ describe("getRole function", () => {
         expect(role).toEqual('Engineer');
     })
 })
-//test3: can get github username via getGithub()
+//test3: getGithub() should return Engineer's github username
 describe("getGithub function", () => {
     it("should return engineer's github username", () =>{
         const engineer = new Engineer('Luz', '032593', 'c12vida@gmail.com', 'delaluz12');

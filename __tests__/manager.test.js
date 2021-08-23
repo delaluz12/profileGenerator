@@ -15,7 +15,7 @@ describe("getRole function", () => {
         expect(role).toEqual('Manager');
     })
 })
-//test3: can get office number via getOffice();
+//test3:getOffice() should return Manager's office #;
 describe("getOfficeNum function", () => {
     it("should return managers's office number", () =>{
         const manager = new Manager('Luz', '032593', 'c12vida@gmail.com', '2525');

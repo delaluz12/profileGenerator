@@ -15,7 +15,7 @@ describe("getRole function", () => {
         expect(role).toEqual('Intern');
     })
 })
-//test3: can get school via getSchool()
+//test3: getSchool() should return intern's school
 describe("getSchool function", () => {
     it("should return intern's school", () =>{
         const intern = new Intern('Luz', '032593', 'c12vida@gmail.com', 'Augsburg');
