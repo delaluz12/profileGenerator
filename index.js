@@ -26,7 +26,7 @@ function init() {
                 name: 'managerName',
                 message: "What is the team manager's name?",
                 validate: (response)=> {
-                    //if response is not empty return true and move to next question -- else let them to enter at least 1 char
+                    //if response is not empty return true and move to next question -- else tell them to enter at least 1 char
                     return (response !== "")? true : 'Must enter at least 1 character' ;
                 }
             },
@@ -44,7 +44,6 @@ function init() {
                 name: 'managerEmail',
                 message: "What is the team manager's email?",
                 validate: (response) => {
-                    console.log(response)
                     const re = /\S+@\S+\.\S+/;
                     const isValidEmail = re.test(response);
                     return (isValidEmail) ? true : 'email entry not valid - please try again';
@@ -108,7 +107,6 @@ function init() {
                 name: 'engineerEmail',
                 message: "What is the engineer's email?",
                 validate: (response) => {
-                    console.log(response)
                     const re = /\S+@\S+\.\S+/;
                     const isValidEmail = re.test(response);
                     return (isValidEmail) ? true : 'email entry not valid - please try again';
@@ -165,7 +163,6 @@ function init() {
                 name: 'internEmail',
                 message: "What is the intern's email?",
                 validate: (response) => {
-                    console.log(response)
                     const re = /\S+@\S+\.\S+/;
                     const isValidEmail = re.test(response);
                     return (isValidEmail) ? true : 'email entry not valid - please try again';
