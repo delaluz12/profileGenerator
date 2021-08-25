@@ -44,10 +44,10 @@ function init() {
                 name: 'managerEmail',
                 message: "What is the team manager's email?",
                 validate: (response) => {
-                    const re = `/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/`;
-                    const isValidEmail = re.test(response.managerEmail);
-                    console.log(isValidEmail);
-                    // return (isValidEmail) ? true : 'email entry not valid - please try again';
+                    console.log(response)
+                    const re = /\S+@\S+\.\S+/;
+                    const isValidEmail = re.test(response);
+                    return (isValidEmail) ? true : 'email entry not valid - please try again';
                 }
             },
             {
@@ -98,21 +98,40 @@ function init() {
                 type: 'input',
                 name: 'engineerName',
                 message: "What is the engineer's name?",
+                validate: (response)=> {
+                    //if response is not empty return true and move to next question -- else let them to enter at least 1 char
+                    return (response !== "")? true : 'Must enter at least 1 character' ;
+                },
             },
             {
                 type: 'input',
                 name: 'engineerEmail',
                 message: "What is the engineer's email?",
+                validate: (response) => {
+                    console.log(response)
+                    const re = /\S+@\S+\.\S+/;
+                    const isValidEmail = re.test(response);
+                    return (isValidEmail) ? true : 'email entry not valid - please try again';
+                },
+                
             },
             {
                 type: 'input',
                 name: 'engineerId',
-                message: "What is the engineer's ID?"
+                message: "What is the engineer's ID?",
+                validate: (response) => {
+                    const isNum = /^\d+$/.test(response);
+                    return (isNum) ? true : 'must enter postive whole numbers'
+                }
             },
             {
                 type: 'input',
                 name: 'engineerGithub',
-                message: "What is the engineer's GitHub username?"
+                message: "What is the engineer's GitHub username?",
+                validate: (response)=> {
+                    //if response is not empty return true and move to next question -- else let them to enter at least 1 char
+                    return (response !== "")? true : 'Must enter at least 1 character' ;
+                },
             },
         ]).then(response => {
             const engineer = new Engineer(response.engineerName, response.engineerId, response.engineerEmail, response.engineerGithub);
@@ -127,21 +146,39 @@ function init() {
                 type: 'input',
                 name: 'internName',
                 message: "What is the intern's name?",
+                validate: (response)=> {
+                    //if response is not empty return true and move to next question -- else let them to enter at least 1 char
+                    return (response !== "")? true : 'Must enter at least 1 character' ;
+                },
             },
             {
                 type: 'input',
                 name: 'internId',
-                message: "What is the intern's ID?"
+                message: "What is the intern's ID?",
+                validate: (response) => {
+                    const isNum = /^\d+$/.test(response);
+                    return (isNum) ? true : 'must enter postive whole numbers'
+                }
             },
             {
                 type: 'input',
                 name: 'internEmail',
-                message: "What is the intern's email?"
+                message: "What is the intern's email?",
+                validate: (response) => {
+                    console.log(response)
+                    const re = /\S+@\S+\.\S+/;
+                    const isValidEmail = re.test(response);
+                    return (isValidEmail) ? true : 'email entry not valid - please try again';
+                },
             },
             {
                 type: 'input',
                 name: 'internSchool',
-                message: "What school does the intern attend?"
+                message: "What school does the intern attend?",
+                validate: (response)=> {
+                    //if response is not empty return true and move to next question -- else let them to enter at least 1 char
+                    return (response !== "")? true : 'Must enter at least 1 character' ;
+                },
             },
         ]).then(response => {
             const intern = new Intern(response.internName, response.internId, response.internEmail, response.internSchool);
